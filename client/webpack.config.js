@@ -18,11 +18,46 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
+      // Generates our html file
+      new HtmlWebpackPlugin({
+        template: "./index.html",
+        title: "Jate",
+      }),
+
+      // inject our service worker file
+      new InjectManifest({
+        swSrc: "./src-sw.js",
+        swDest: "src-sw.js"
+      }),
+
+      new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
+        name: "Jate",
+        description: "Create notes online or offline",
+        backgroundColor: "red",
+        themeColor: "blue",
+        startUrl: "./",
+        publicPath: "./",
+        icons: [
+          {
+            src: path.resolve("src/images/logo.png"),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join("assets", "icons"),
+          }
+        ]
+      })
       
     ],
 
     module: {
       rules: [
+        // Add css to webpack
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
+        },
+        
         
       ],
     },
