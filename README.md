@@ -15,6 +15,9 @@ This is a screenshot of the text-editor open in the browser via heroku.
 Here is a screenshot of the text-editor once installed and open from the desktop.
 ![alt](./assets/images/App-installed.png)
 
+Here is a screenshot of the text-editor showing IndexedDB
+![alt](./assets/images/Application-IndexedDB.png)
+
 ## Table of contents
 - [Go to Technologies](#technologies-used)
 - [Go to Installation](#installation) 
